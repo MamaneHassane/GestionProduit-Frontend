@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TP-SOMEI-Angular-Frontend:build:production"
+              "buildTarget": "TP-SOMEI-Angular-Frontend:build:production",
             },
             "development": {
-              "buildTarget": "TP-SOMEI-Angular-Frontend:build:development"
+              "buildTarget": "TP-SOMEI-Angular-Frontend:build:development",
             }
           },
           "defaultConfiguration": "development"

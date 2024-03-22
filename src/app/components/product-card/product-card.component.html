@@ -1,0 +1,39 @@
+<div class="flex flex-col bg-indigo-900  rounded-md m-2">
+
+  <div class="rounded-md">
+    <img class="w-full h-full rounded-t-md object-contain" src="{{product?.productImageUrl}}" alt="">
+  </div>
+
+  <div class="flex flex-1">
+    <div class="flex flex-col justify-start items-start px-1">
+      <p class="text-pink-500 font-bold text-xl">{{product?.productName}}</p>
+      <div class="flex flex-row justify-between items-center">
+        <span class="text-md text-white font-italic font-bold">
+          {{product?.productDescription}}
+        </span>
+      </div>
+      <div class="flex flex-row flex-1 w-full justify-end items-center p-2 gap-1">
+
+        <app-product-card-button
+        [onClick]="onClickDetailsButton"
+        [imagePath]="'../../assets/details.png'"
+        >
+        </app-product-card-button>
+
+        <app-product-card-button
+          [onClick]="onClickUpdateButton"
+          [imagePath]="'../../assets/update.png'"
+        >
+        </app-product-card-button>
+
+        <app-product-card-button
+          [onClick]="onClickDeleteButton"
+          [imagePath]="'../../assets/delete.png'"
+        >
+        </app-product-card-button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
