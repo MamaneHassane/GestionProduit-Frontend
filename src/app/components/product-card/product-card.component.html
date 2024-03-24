@@ -15,19 +15,19 @@
       <div class="flex flex-row flex-1 w-full justify-end items-center p-2 gap-1">
 
         <app-product-card-button
-        [onClick]="onClickDetailsButton"
+        (click)="onClickDetailsButton(product?.productId)"
         [imagePath]="'../../assets/details.png'"
         >
         </app-product-card-button>
 
         <app-product-card-button
-          [onClick]="onClickUpdateButton"
+          (click)="onClickUpdateButton(product?.productId)"
           [imagePath]="'../../assets/update.png'"
         >
         </app-product-card-button>
 
         <app-product-card-button
-          [onClick]="onClickDeleteButton"
+          (click)="onClickDeleteButton()"
           [imagePath]="'../../assets/delete.png'"
         >
         </app-product-card-button>

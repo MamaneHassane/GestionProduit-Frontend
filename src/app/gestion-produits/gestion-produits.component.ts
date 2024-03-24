@@ -33,7 +33,7 @@ export class GestionProduitsComponent implements OnInit, OnChanges{
   }
 
   // Le tableau de tous les produits
-  public products: Product[] = []
+  public products!: Product[]
 
   ngOnInit(): void {
 
@@ -46,11 +46,10 @@ export class GestionProduitsComponent implements OnInit, OnChanges{
   }
 
   // Supprimer un produit
-  deleteProduct(productId:number): void {
+  deleteProduct(productId:number) {
     this._service.deleteProduct(productId).subscribe({
       next : ()=>{console.log("Deleted"+productId)}
     })
-
   }
 
   doLog(){

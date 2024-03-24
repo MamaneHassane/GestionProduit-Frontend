@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Product} from "../../models/Product";
 import {ProductCardButtonComponent} from "../product-card-button/product-card-button.component";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-product-card',
@@ -15,14 +16,21 @@ export class ProductCardComponent {
 
   // Le produit qui sera affiché
   @Input()
-  product: Product | undefined
+  product!: Product
 
   @Input()
-  onClickDetailsButton: void | undefined
+  onClickDetailsButton: any | undefined;
 
   @Input()
-  onClickUpdateButton: void | undefined
+  onClickUpdateButton: any | undefined;
 
-  @Input()
-  onClickDeleteButton: void | undefined
+  onClickDeleteButton() {
+    this._service.deleteProduct(this.product.productId).subscribe({
+      next : ()=>{console.log("Deleted"+this.product.productId)}
+    })
+  }
+
+  _service:ProductService = inject(ProductService)
+
+
 }

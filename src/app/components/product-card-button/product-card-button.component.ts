@@ -12,6 +12,4 @@ export class ProductCardButtonComponent {
   @Input()
   public imagePath : string | undefined
 
-  @Input()
-  public onClick : void | undefined
 }
