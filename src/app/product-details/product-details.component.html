@@ -1,0 +1,29 @@
+<div class="flex flex-col flex-1 p-2">
+
+  <p class="pb-5 text-indigo-500 text-3xl sm:text-5xl text-bold">Détails du produit</p>
+
+  <div *ngIf="!product" class="flex flex-col justify-around items-center">
+    <p class="pb-5 text-indigo-500 text-3xl sm:text-5xl text-bold">Il n'y a aucun produit correspondant dans la base de donnés</p>
+    <span class="pi pi-question-circle h-24 w-24"></span>
+  </div>
+
+  <div *ngIf="product" class="flex flex-col sm:flex-row flex-1 h-full py-2">
+
+    <div class="flex flex-1 flex-col sm:flex-row object-contain rounded-md ">
+      <img src="{{product.productImageUrl}}" class="h-full w-full rounded-md" alt="Image 100% fidèle">
+
+    </div>
+
+    <div class="flex flex-1 flex-col sm:px-1">
+      <p class="text-pink-500 font-bold text-2xl md:text-xl xl:text-2xl">
+        {{product.productName}}
+      </p>
+
+      <p class="text-indigo-300 text-xl">
+        {{product.productDescription}}
+      </p>
+    </div>
+
+  </div>
+
+</div>
