@@ -14,13 +14,13 @@ export const routes: Routes = [
     component: GestionProduitsComponent
   },
   {
+    path: 'products/details/:product_id',
+    component: ProductDetailsComponent
+  },
+  {
     path : '**',
     loadChildren : () => import('../app/page-not-found/page-not-found.module')
       .then(m=>m.PageNotFoundModule)
   },
-  {
-    path: 'products/details/:product_id',
-    component: ProductDetailsComponent
-  }
 
 ];

@@ -30,7 +30,7 @@ export class RegistrationPageComponent {
       next : () => {
         console.log(this.user)
         console.log("Utilisateur inscrit avec succès !!")
-        this._router.navigate(["/login"]).then(r => {
+        this._router.navigate(["/auth"]).then(r => {
           console.log("Utilisateur rédirigé vers la page d'authentification !!")
         })
       },

@@ -3,9 +3,9 @@
 
   <p class="pb-5 text-indigo-500 text-3xl sm:text-5xl text-bold">Liste des produits</p>
 
-  <div *ngIf="products?.length==0" class="flex flex-col justify-around items-center">
-    <p class="pb-5 text-indigo-500 text-3xl sm:text-5xl text-bold">Il n'y a aucun produit dans la base de donnés</p>
-    <span class="pi pi-question-circle h-24 w-24"></span>
+  <div *ngIf="products?.length==0" class="flex flex-col mt-32 justify-around items-center">
+    <p class="pb-5 text-red-500 text-3xl sm:text-2xl text-bold">Il n'y a aucun produit dans la base de donnés</p>
+    <span class="text-red-500 text-3xl pi pi-database h-24 w-24"></span>
   </div>
 
   <div>

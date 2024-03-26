@@ -2,10 +2,17 @@
   <div class="bg-white flex flex-row justify-center items-center rounded-full h-12 w-12">
     <img class="w-full h-full object-contain p-2" src="https://cdn-icons-png.flaticon.com/128/2171/2171991.png" alt="">
   </div>
-  <ul class="flex flex-row items-center text-xl text-pink-500 font-medium">
+  <ul class="flex flex-row items-center text-xl text-pink-600 font-medium">
     <li class="">
-      <a class="ml-4 hover:text-white" routerLink="products">
+      <a class="ml-4 p-2 text-white hover:text-pink-600 hover:bg-white bg-pink-600 rounded-lg" routerLink="/products">
+        <span class="pi pi-home mr-1"></span>
         Home
+      </a>
+    </li>
+    <li class="">
+      <a class="ml-4 p-2 text-white hover:text-pink-600 hover:bg-white bg-pink-600 rounded-lg" routerLink="/addProduct">
+        Add product
+        <span class="pi pi-plus-circle mr-1 mt-1"></span>
       </a>
     </li>
   </ul>

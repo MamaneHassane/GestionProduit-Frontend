@@ -15,7 +15,7 @@ import {RegistrationPageComponent} from "../registration-page/registration-page.
   styleUrl: './auth-register-parent.component.css'
 })
 export class AuthRegisterParentComponent {
-  haveAccount: boolean = false;
+  haveAccount: boolean = true;
   switchPage() : void {
     this.haveAccount = !this.haveAccount
   }
