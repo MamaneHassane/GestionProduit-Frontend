@@ -3,6 +3,7 @@ import {Product} from "../models/Product";
 import {ProductService} from "../services/product.service";
 import {ProductCardComponent} from "../components/product-card/product-card.component";
 import {AsyncPipe, NgFor, NgIf} from "@angular/common";
+import {CustomNavbarComponent} from "../components/custom-navbar/custom-navbar.component";
 
 @Component({
   selector: 'app-gestion-produits',
@@ -12,6 +13,7 @@ import {AsyncPipe, NgFor, NgIf} from "@angular/common";
     NgIf,
     NgFor,
     AsyncPipe,
+    CustomNavbarComponent,
   ],
   templateUrl: './gestion-produits.component.html',
   styleUrl: './gestion-produits.component.css'

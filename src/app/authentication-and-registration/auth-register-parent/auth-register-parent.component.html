@@ -1,0 +1,39 @@
+<div class="flex flex-col justify-center items-center">
+  <div class="flex flex-row justify-center items-center">
+    <p class="text-3xl text-indigo-500 font-bold pt-12">
+      Welcome friend &nbsp;
+    </p>
+    <span class="pi pi-heart-fill text-5xl text-red-600 pt-12"></span>
+  </div>
+
+  <app-authentication-page *ngIf="haveAccount"></app-authentication-page>
+
+  <app-registration-page *ngIf="!haveAccount"></app-registration-page>
+
+  <div
+    *ngIf="!haveAccount"
+    class="flex flex-row items-center text-indigo-900 text-xl">
+    Already have an account ?
+    <button class="ml-2 bg-red-600 hover:bg-white hover:border-2 hover:border-red-600 rounded-lg"
+            (click)="switchPage()"
+            >
+      <p class="text-white hover:text-red-600 font-bold p-2">Authenticate</p>
+    </button>
+  </div>
+
+  <div
+    *ngIf="haveAccount"
+    class="flex flex-row items-center text-indigo-900 text-xl">
+    You don't have an account ?
+    <button class="ml-2 bg-red-600 hover:bg-white hover:border-2 hover:border-red-600 rounded-lg"
+            (click)="switchPage()"
+    >
+      <p class="text-white hover:text-red-600 font-bold p-2">Register</p>
+    </button>
+  </div>
+
+
+
+
+
+</div>
