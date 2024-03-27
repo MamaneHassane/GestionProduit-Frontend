@@ -17,5 +17,32 @@
     </div>
   </div>
 
+
+
+
+</div>
+
+<div class="mt-auto mb-4 flex flex-row justify-center items-center">
+  <ul class="pagination modal">
+    <li><a class="prev"
+           (click)="goToPreviousPage()"
+    >&laquo; </a></li>
+    <li *ngFor="let i of countArray(numberOfPages)"
+        (click)="goToPage(i+1)"
+    ><a class="{{i+1 == currentPage ? 'active' : ''}}">{{ i + 1 }}</a></li>
+    <li><a class="next"
+           (click)="goToNextPage()"
+    >  &raquo;</a></li>
+  </ul>
+
+  <select [(ngModel)]="numberPerPage"
+          class="p-2 mx-4 mt-1 rounded-lg bg-red-500 text-white font-bold"
+  >
+    <option class="hover:bg-white hover:text-red-500" value= 1>1</option>
+    <option class="hover:bg-white hover:text-red-500" value= 2>2</option>
+    <option class="hover:bg-white hover:text-red-500" value= 10>10</option>
+    <option class="hover:bg-white hover:text-red-500" value= 20>20</option>
+    <option class="hover:bg-white hover:text-red-500" value= 50>50</option>
+  </select>
 </div>
 

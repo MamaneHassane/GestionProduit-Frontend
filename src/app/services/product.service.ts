@@ -20,6 +20,14 @@ export class ProductService {
     return this.http.get<Product[]>(this.apiUrl).pipe()
   }
 
+  getProductsByPageNumber(pageNumber:number) : Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl}/page/${pageNumber}`).pipe()
+  }
+
+  getProductsByPageNumberAndPageSize(pageNumber:number, pageSize:number) : Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl}/pageNumber/${pageNumber}/pageSize/${pageSize}`).pipe()
+  }
+
   getProductDetails(productId: number) : Observable<Product> {
     return this.http.get<Product>(this.apiUrl+`/`+productId)
   }
