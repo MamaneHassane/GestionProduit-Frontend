@@ -5,6 +5,13 @@ interface Product {
   productImageUrl : string
 }
 
+interface ProductDto {
+  productName : string,
+  productDescription : string,
+  productImageUrl : string
+}
+
 export {
-  Product
+  Product,
+  ProductDto
 }

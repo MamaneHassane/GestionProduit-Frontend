@@ -5,6 +5,7 @@ import {ProductCardComponent} from "../components/product-card/product-card.comp
 import {AsyncPipe, NgFor, NgIf} from "@angular/common";
 import {CustomNavbarComponent} from "../components/custom-navbar/custom-navbar.component";
 import {FormsModule} from "@angular/forms";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-gestion-produits',
@@ -26,24 +27,44 @@ export class GestionProduitsComponent implements OnInit, OnChanges{
   private _service = inject(ProductService);
 
   // Nombre de pages
-  numberOfPages : number =3
+  numberOfPages! : number
 
-  // Items par page
+  // Items par page, 1 par défaut
   numberPerPage: number = 1
+  // Son subject
+  numberPerPageSubject: BehaviorSubject<number> = new BehaviorSubject<number>(1)
+  // Son observable
+  numberPerPageObservable = this.numberPerPageSubject.asObservable()
+  // Mise à jour
+  updateNumberPerPageAndNumberOfPages(value:number){
+    this.numberPerPageSubject.next(value)
+    this.getNumberOfPagesByPageSize()
+    if(this.currentPage>this.numberOfPages) this.currentPage = this.numberOfPages
+  }
+
   countArray(n: number): number[] {
     return Array.from({length: n}, (_, i) => i);
   }
   // Page actuelle
   currentPage:number = 1
 
+  // Trouver le nombre de pages
+  getNumberOfPagesByPageSize(){
+    this._service.getNumberOfPagesByPageSize(this.numberPerPageSubject.value).subscribe({
+      next : (response) => {
+        this.numberOfPages = response
+      }
+    })
+  }
+
   goToPage(index:number){
-    this._service.getProductsByPageNumberAndPageSize(index,this.numberPerPage).subscribe({
+    this._service.getProductsByPageNumberAndPageSize(index,this.numberPerPageSubject.value).subscribe({
       next: (result) => {
-        console.log(result)
+        // console.log(result)
         this.products=result;
         this.currentPage = index
         console.log(this.currentPage)
-        console.log(this.products)
+        // console.log(this.products)
       }
     })
   }
@@ -63,12 +84,21 @@ export class GestionProduitsComponent implements OnInit, OnChanges{
   }
 
   constructor() {
+    // Nombre de pages
+    this.getNumberOfPagesByPageSize()
     // Retrouver la liste des produits
-    this._service.getAllProducts().subscribe({
+    this._service.getProductsByPageNumber(this.currentPage).subscribe({
       next: (result) => {
         console.log(result)
         this.products=result;
         console.log(this.products)
+      }
+    })
+    // Si items par page change
+    this.numberPerPageObservable.subscribe({
+      next : (value)=>{
+        console.log("Exec2")
+        this.goToPage(this.currentPage)
       }
     })
   }

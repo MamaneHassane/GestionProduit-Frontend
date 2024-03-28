@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import {GestionProduitsComponent} from "./gestion-produits/gestion-produits.component";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AddProductComponent} from "./add-product/add-product.component";
 import {UpdateProductComponent} from "./update-product/update-product.component";
+import {authGuard} from "./guards/auth.guard";
 
 export const routes: Routes = [
   {
@@ -13,19 +13,23 @@ export const routes: Routes = [
   },
   {
     path : 'products',
-    component: GestionProduitsComponent
+    component: GestionProduitsComponent,
+    canActivate : [authGuard]
   },
   {
     path : 'addProduct',
-    component: AddProductComponent
+    component: AddProductComponent,
+    canActivate : [authGuard]
   },
   {
-    path : 'updateProduct',
-    component: UpdateProductComponent
+    path : 'products/updateProduct/:product_id',
+    component: UpdateProductComponent,
+    canActivate : [authGuard]
   },
   {
     path: 'products/details/:product_id',
-    component: ProductDetailsComponent
+    component: ProductDetailsComponent,
+    canActivate : [authGuard]
   },
   {
     path : '**',

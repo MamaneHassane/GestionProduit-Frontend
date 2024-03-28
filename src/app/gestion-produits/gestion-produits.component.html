@@ -36,6 +36,7 @@
   </ul>
 
   <select [(ngModel)]="numberPerPage"
+          (ngModelChange)="updateNumberPerPageAndNumberOfPages($event)"
           class="p-2 mx-4 mt-1 rounded-lg bg-red-500 text-white font-bold"
   >
     <option class="hover:bg-white hover:text-red-500" value= 1>1</option>

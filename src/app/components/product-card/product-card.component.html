@@ -15,13 +15,13 @@
       <div class="flex flex-row flex-1 w-full justify-end items-center p-2 gap-1">
 
         <app-product-card-button
-          [routerLink]="['/products/details/', product.productId]"
+          [routerLink]="['details/', product.productId]"
           [imagePath]="'../../assets/details.png'"
         >
         </app-product-card-button>
 
         <app-product-card-button
-          [routerLink]="['/products', product.productId]"
+          [routerLink]="['updateProduct', product.productId]"
           [imagePath]="'../../assets/update.png'"
         >
         </app-product-card-button>

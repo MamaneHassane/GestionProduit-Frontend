@@ -4,15 +4,17 @@ import {ProductService} from "../services/product.service";
 import {Product} from "../models/Product";
 import {NgForOf, NgIf} from "@angular/common";
 import {ProductCardComponent} from "../components/product-card/product-card.component";
+import {CustomNavbarComponent} from "../components/custom-navbar/custom-navbar.component";
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [
-    NgForOf,
-    NgIf,
-    ProductCardComponent
-  ],
+    imports: [
+        NgForOf,
+        NgIf,
+        ProductCardComponent,
+        CustomNavbarComponent
+    ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
